@@ -18,7 +18,7 @@ Utilize the following resources to research the commands you will need:
 1. If it's not already your database server should be running.  If you haven't restarted your computer since installing mongodb during the lesson, it probably still is.  You can check with the command: 
 
     ```bash
-    ps aux | grep -v grep | grep mongod`.
+    ps aux | grep -v grep | grep mongod
     ```  
 
     If it's running, you'll see a process like this:
