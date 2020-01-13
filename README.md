@@ -135,7 +135,7 @@ Using the `Vampire.create()` method, create 4 new vampires with any qualities th
 
 ## Querying
 
-### Select by comparison
+### 3\. Select by comparison
 
 Write a different query for each of the following:
 
@@ -149,7 +149,7 @@ Write a different query for each of the following:
 &#x1F534;  Commit. Suggested message: "queried for vampires"
 <hr>
 
-### Select by exists or does not exist
+### 4\. Select by exists or does not exist
 Select all the vampires that:
 
 1. have a title property
@@ -161,7 +161,7 @@ Select all the vampires that:
 &#x1F534;  Commit. Suggested message: "selected vampires"
 <hr>
 
-### Select with OR
+### 5\. Select with OR
 Select all the vampires that:
 
 1. are from New York, New York, US or New Orleans, Louisiana, US
@@ -173,53 +173,6 @@ Select all the vampires that:
 &#x1F534;  Commit. Suggested message: "selected more vampires with OR"
 <hr>
 
-# Part 2
-
-### Before you continue on to part two, you should know that Mongoose has some sweet helper functions that can make all this a little easier. See below.
-
-Mongoose's default find gives you an array of objects.  But what if you know you only want one object?  These convenience methods just give you one object without the usual array surrounding it.
-
-```javascript
-Article.findById('5757191bce5579b805705900', (err, article)=>{
-  console.log(article);
-});
-```
-```javascript
-Article.findOne({ author : 'Matt' }, (err, article)=>{
-  console.log(article);
-});
-```
-```javascript
-Article.findByIdAndUpdate(
-  '5757191bce5579b805705900', // id of what to update
-  { $set: { author: 'Matthew' } }, // how to update it
-  { new : true }, // tells findOneAndUpdate to return modified article, not the original
-  (err, article)=>{
-    console.log(article);
-  });
-});
-```
-```javascript
-Article.findOneAndUpdate(
-  { author: 'Matt' }, // search criteria of what to update
-  { $set: { author: 'Matthew' } }, // how to update it
-  { new : true }, // tells findOneAndUpdate to return modified article, not the original
-  (err, article)=>{
-    console.log(article);
-  });
-});
-```
-```javascript
-Article.findByIdAndRemove('5757191bce5579b805705900', (err, article)=>{
-  console.log(article); // log article that was removed
-});
-```
-```javascript
-
-Article.findOneAndRemove({ author : 'Matt' }, (err, article)=>{
-  console.log(article); // log article that was removed
-});
-```
 
 
 ### 6\. Select objects that match one of several values
