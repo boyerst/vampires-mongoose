@@ -15,7 +15,13 @@ Utilize the following resources to research the commands you will need:
 
 ## Setup
 
-1. If it's not already your database server should be running.  If you haven't restarted your computer since installing mongodb during the lesson, it probably still is.  You can check with the command `ps aux | grep -v grep | grep mongod`.  If it's running, you'll see a process like this:
+1. If it's not already your database server should be running.  If you haven't restarted your computer since installing mongodb during the lesson, it probably still is.  You can check with the command: 
+
+    ```bash
+    ps aux | grep -v grep | grep mongod`.
+    ```  
+
+    If it's running, you'll see a process like this:
     ```bash
     ......... /usr/local/opt/mongodb-community/bin/mongod --config /usr/local/etc/mongod.conf
     ```
@@ -52,7 +58,7 @@ This is where mongoose comes in. Instead of manually making sure everything we a
 Mongoose, in the background, can enforce these schemas (as strictly as you like) in order to make sense of the data going into the database and to allow validation. It provides powerful and simple to use tools to do this.
 
 
-## Building a Schema
+## 1. Building a Schema
 
 Lets design a schema using mongoose and then use it to create some documents and eventually query for those documents.
 
@@ -99,7 +105,7 @@ const vampire = {
 <hr>
 
 
-## Add the vampire data that we gave you
+## 2. Add the vampire data that we gave you
 
 There's an array of "vampire" JavaScript objects in `vampireData.js`, and we need to add them add the vampires to a mongoDB vampires collection.
 
