@@ -87,7 +87,7 @@ const vampire = {
 
 9. Set up your `app.js` file to connect to your `vampires` database.
 
-10. If you like, you may now try testing your schema with the automated tests by running `npm test` in your terminal.
+10. **Optional** If you like, you may now try testing your schema with the automated tests by running `npm test` in your terminal.
 
 
 <hr>
@@ -97,7 +97,7 @@ const vampire = {
 
 ## Add the vampire data that we gave you
 
-There's an array of "vampire" JavaScript objects in `populateVampires.js`, and we need to add them add the vampires to a mongoDB vampires collection.
+There's an array of "vampire" JavaScript objects in `vampireData.js`, and we need to add them add the vampires to a mongoDB vampires collection.
 
 In class, you inserted one object using the `.create()` method on your model.
 
@@ -109,7 +109,7 @@ Or!
 
 Maybe you can do this simply by providing this array to insert method and it will create a document for each object in the array?  
 
-If you're stuck, click below
+If you're stuck, click below.
 
 <details>
 
@@ -122,7 +122,6 @@ Vampire.collection.insertMany(vampireData, (err, data) => {
 
 </details>
 
-# Part 1: 
 
 ### Add some new vampire data
 
