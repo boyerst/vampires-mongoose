@@ -15,7 +15,11 @@ Utilize the following resources to research the commands you will need:
 
 ## Setup
 
-1. If it's not already running, start your mongo server with `mongod`.
+1. If it's not already your database server should be running.  If you haven't restarted your computer since installing mongodb during the lesson, it probably still is.  You can check with the command `ps aux | grep -v grep | grep mongod`.  If it's running, you'll see a process like this:
+    ```bash
+    ......... /usr/local/opt/mongodb-community/bin/mongod --config /usr/local/etc/mongod.conf
+    ```
+    If not, you can start it with `brew services start mongodb-community@4.2`
 
 2. Fork and clone this repo, which includes:
 
@@ -39,7 +43,7 @@ Mongo, is schema-less on the database level. It doesn't care what the data looks
 
 ## Why they are important?
 
-Even when you are using MongoDB, an inherently schema-less database, a schema can be very helpful. It helps control what is going into the database so that you can both know what is going into it, and to make validations. Note that with MongoDB, even if a piece of data is not a part of your original schema, you can still store it.
+Even when you are using MongoDB, an inherently schema-less database, a schema is very helpful. It helps control what is going into the database so that you can both know what is going into it, and to make validations. Note that with MongoDB, even if a piece of data is not a part of your original schema, you can still store it.
 
 ## Mongoose
 
