@@ -19,7 +19,7 @@ Utilize the following resources to research the commands you will need:
     ```bash
     ......... /usr/local/opt/mongodb-community/bin/mongod --config /usr/local/etc/mongod.conf
     ```
-    If not, you can start it with `brew services start mongodb-community@4.2`
+    If not, you can start it with `brew services start mongodb-community@4.2` as described [**in the MongoDB installation docs here**](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
 
 2. Fork and clone this repo, which includes:
 
