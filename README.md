@@ -2,7 +2,7 @@
 
 # Mongoose Vampires
 
-For this two part homework assignment, you will be using some  mongoose commands and you will be **reading documentation**  to find **new** queries/techniques to complete the following activities. Researching queries and implementing them is a big part of this homework!
+For this homework assignment, you will be using some  mongoose commands and you will be **reading documentation**  to find **new** queries/techniques to complete the following activities. Researching queries and implementing them is a big part of this homework!
 
 ![mongoose](https://s-media-cache-ak0.pinimg.com/564x/ee/b7/a9/eeb7a99383582d53e65ffcc0e4a225bd.jpg)
 
