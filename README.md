@@ -2,15 +2,22 @@
 
 # Mongoose Vampires
 
+## Reading documentation
+
 For this homework assignment, you will be using some  mongoose commands and you will be **reading documentation**  to find **new** queries/techniques to complete the following activities. Researching queries and implementing them is a big part of this homework!
 
 ![mongoose](https://s-media-cache-ak0.pinimg.com/564x/ee/b7/a9/eeb7a99383582d53e65ffcc0e4a225bd.jpg)
 
 # Resources
+
 Utilize the following resources to research the commands you will need:
+
 - Your notes from today
-- [MongoDB Manual](https://docs.mongodb.org/manual/reference/operator/query/#query-selectors)
-- [Mongoose Docs](http://mongoosejs.com/docs/guide.html)
+
+- You will need to use this section on [Query Selectors from the MongoDB docs](https://docs.mongodb.org/manual/reference/operator/query/#query-selectors)... remember, **you can use mongo query objects in mongoose .find() queries.**
+
+
+- You can also read the [Mongoose Docs](http://mongoosejs.com/docs/guide.html). In particular, mongoose has some sweet helper methods that can make a lot of query operations easier, [**You can read about those in this part of the docs**](https://mongoosejs.com/docs/api/query.html).  It will be a bit challenging to figure out how to write the query differently (chain `.exec()` onto the end of the query and pass in your callback there), but they can be a nice clean alternative syntax, and the hallmark of a motivated developer is that they enjoy reading documentation and trying to figure out how how to use their tools. 
 
 
 ## Setup
