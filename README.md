@@ -14,10 +14,14 @@ Utilize the following resources to research the commands you will need:
 
 - Your notes from today
 
-- You will need to use this section on [Query Selectors from the MongoDB docs](https://docs.mongodb.org/manual/reference/operator/query/#query-selectors)... remember, **you can use mongo query objects in mongoose .find() queries.**
+- You will need to use this section on [Query Selectors from the MongoDB docs](https://docs.mongodb.org/manual/reference/operator/query/#query-selectors), particularly the sections on Compairson, Logical, and Element Query operators.  Click on each one and look at the examples.  Remember, **you can use mongo query objects with mongodb operators (like `$gte` for "greater than or equal to" or `$lt` for "less than", etc) in mongoose .find() queries.**
 
 
-- You can also read the [Mongoose Docs](http://mongoosejs.com/docs/guide.html). In particular, mongoose has some sweet helper methods that can make a lot of query operations easier, [**You can read about those in this part of the docs**](https://mongoosejs.com/docs/api/query.html).  It will be a bit challenging to figure out how to write the query differently (chain `.exec()` onto the end of the query and pass in your callback there), but they can be a nice clean alternative syntax, and the hallmark of a motivated developer is that they enjoy reading documentation and trying to figure out how how to use their tools. 
+- You can also read the [Mongoose Docs](http://mongoosejs.com/docs/guide.html). In particular, mongoose has some sweet helper methods that can make a lot of query operations easier, [**You can read about those in this part of the docs**](https://mongoosejs.com/docs/api/query.html) [**and especially in this part of the docs**](https://mongoosejs.com/docs/api.html#query-js).  It will be a bit challenging to figure out how to write the query differently (chain `.exec()` onto the end of the query and pass in your callback there), but they can be a nice clean alternative syntax, and the hallmark of a motivated developer is that they enjoy reading documentation and trying to figure out how how to use their tools. 
+
+For example: see this from [this section](https://mongoosejs.com/docs/api.html#model_Model.where), which shows both how to use operators in a JS object in a query, and how to do the same thing with their query builder syntax:
+
+![Pic from docs](./example-of-query.png)
 
 
 ## Setup
