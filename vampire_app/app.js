@@ -431,6 +431,41 @@ const vampireData = [
 /////////////////////////////////////////////////
 //### Negative Selection
 
+//1.
+// Vampire.find( { 
+// 	loves: 'ribbons',
+// 	eye_color: { $ne: 'brown' } 
+// }, (error, foundVampires) => {
+// if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
+//2.
+// Vampire.find( {location: {$ne: 'Rome, Italy'}}, (error, foundVampires) => {
+// if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
+//3.
+// Vampire.find( 
+// 	{loves: 
+// 		{$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']} 
+// 	}, (error, foundVampires) => {
+// if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
+//4.
+// Vampire.find({victims: { $lte: 200 } }, (error, foundVampires) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
