@@ -528,17 +528,39 @@ const vampireData = [
 
 
 //TRACKING EVE'S/MONIKER/FEM CHANGES:
-Vampire.find({'gender': 'f'}, (error, changes) => {
-	if(error) console.log(error)
-	else {
-		console.log(changes)
-	}
-})
+// Vampire.find({'gender': 'f'}, (error, changes) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(changes)
+// 	}
+// })
 
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REMOVE
+//1.
+//  Vampire.findOneAndRemove ({hair_color: "brown"},
+// 	(error, foundVampires) =>{
+// 		if(error){
+// 			console.log(error)
+// 		}
+// 		else{
+// 			console.log(foundVampires)
+// 		}
+// 	}
+// )
+
+//FINDING ALL TO DEBUG:
+Vampire.find({}, (error, foundVampires) => {
+	if(error) {
+		console.log("There was an error")
+		console.log(error)
+	} else {
+		console.log("There was not an error")
+		console.log(foundVampires)
+	}
+})
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
