@@ -173,74 +173,217 @@ const vampireData = [
   }
 ]
 
-Vampire.create(vampireData, (error, createdVampires) => {
-    if(error) {
-        console.log("There was an error");
-        console.log(error)
-    } else {
-        console.log("Here is the created Vampire data")
-        console.log(vampireData)
-    }
-})
+// Vampire.create(vampireData, (error, createdVampires) => {
+//     if(error) {
+//         console.log("There was an error");
+//         console.log(error)
+//     } else {
+//         console.log("Here is the created Vampire data")
+//         console.log(vampireData)
+//     }
+// })
 // ### Add some new vampire data
-Vampire.create([
-{
-    name: 'Ronald McDonald',
-    dob: new Date(1870, 2, 3, 3, 3),
-    hair_color: 'brown',
-    eye_color: 'blue',
-    loves: ['milkshakes', 'McDoubles', 'playgrounds'],
-    location: 'Topeka, Kansas',
-    gender: 'm',
-    victims: 1000000000
-  },{
-    name: 'Bill Murray',
-    hair_color: 'brown',
-    eye_color: 'brown',
-    dob: new Date(1959, 4, 21, 2, 13),
-    loves: ['golfing', 'dynamite', 'the ocean'],
-    location: 'Miami, Florida',
-    gender: 'm',
-    victims: 3
-  },{
-    name: 'Little Red Riding Hood',
-    hair_color: 'brown',
-    eye_color: 'blue',
-    dob: new Date(1820, 2, 3, 17, 17),
-    loves: ['the woods', 'her grandma'],
-    location: 'The Woods, Montana',
-    gender: 'f',
-    victims: 5000
-  },{
-    name: 'Barbara Streisand',
-    hair_color: 'brown',
-    eye_color: 'blue',
-    dob: new Date(1934, 13, 17, 2, 10),
-    loves: ['singing', 'acting', 'plastic faces'],
-    location: 'New York, New York, US',
-    gender: 'f',
-    victims: 10500
-  }
-], (error, createdVampires) => {
-    if(error) {
-        console.log("There was an error");
-        console.log(error)
-    } else {
-        console.log("Here is the created Vampire data")
-        console.log(createdVampires)
-    }
-})
+// Vampire.create([
+// {
+//     name: 'Ronald McDonald',
+//     dob: new Date(1870, 2, 3, 3, 3),
+//     hair_color: 'brown',
+//     eye_color: 'blue',
+//     loves: ['milkshakes', 'McDoubles', 'playgrounds'],
+//     location: 'Topeka, Kansas',
+//     gender: 'm',
+//     victims: 1000000000
+//   },{
+//     name: 'Bill Murray',
+//     hair_color: 'brown',
+//     eye_color: 'brown',
+//     dob: new Date(1959, 4, 21, 2, 13),
+//     loves: ['golfing', 'dynamite', 'the ocean'],
+//     location: 'Miami, Florida',
+//     gender: 'm',
+//     victims: 3
+//   },{
+//     name: 'Little Red Riding Hood',
+//     hair_color: 'brown',
+//     eye_color: 'blue',
+//     dob: new Date(1820, 2, 3, 17, 17),
+//     loves: ['the woods', 'her grandma'],
+//     location: 'The Woods, Montana',
+//     gender: 'f',
+//     victims: 5000
+//   },{
+//     name: 'Barbara Streisand',
+//     hair_color: 'brown',
+//     eye_color: 'blue',
+//     dob: new Date(1934, 13, 17, 2, 10),
+//     loves: ['singing', 'acting', 'plastic faces'],
+//     location: 'New York, New York, US',
+//     gender: 'f',
+//     victims: 10500
+//   }
+// ], (error, createdVampires) => {
+//     if(error) {
+//         console.log("There was an error");
+//         console.log(error)
+//     } else {
+//         console.log("Here is the created Vampire data")
+//         console.log(createdVampires)
+//     }
+// })
 /////////////////////////////////////////////////
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
+//1.
+// Vampire.find({gender: "f"}, (error, foundVampires) => {
+// 		if(error) console.log(err)
+// 		else {
+// 			console.log(foundVampires)
+// }
+// })
+
+//2.
+// Vampire.find({victims: {$gt: 500}}, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//3.
+// Vampire.find({victims: {$lte: 150}}, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//4.
+// Vampire.find({victims: {$ne: 210234}}, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//5.
+// Vampire.find({
+	//victims: {
+// 		$gt: 150,
+// 		$lt: 500
+// 	}
+// }, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
 
 /////////////////////////////////////////////////
 // ### Select by exists or does not exist
 
+//1.
+// Vampire.find({title: {$exists: true}}, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//2.
+// Vampire.find({victims: {$exists: false}}, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//3.
+// Vampire.find({
+// 	title: {
+// 		$exists: true
+// 	}, 
+// 	victims: {
+// 		$eq: 0
+// 	}}, 
+// 	(error, foundVampires) => {
+// 	if(error) 
+// 		console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//4.
+// Vampire.find({
+// 	victims: {
+// 		$exists: true
+// 	}, 
+// 	victims: {
+// 		$gt: 1000
+// 	}}, 
+// 	(error, foundVampires) => {
+// 	if(error) 
+// 		console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
 /////////////////////////////////////////////////
 // ### Select with OR
+//1.
+// Vampire.find({
+// 	$or:[
+// 	{location: 'New York, New York, US'},
+// 	{location: 'New Orleans, Louisiana, US'}
+// 	]
+// }, (error, foundVampires) => {
+// 		if(error) {
+// 			console.log(error);
+// 		} else {
+// 			console.log(foundVampires);
+// 		}
+// })
 
+//2.
+// Vampire.find({
+// 	$or:[
+// 		{loves: 'brooding'},
+// 		{loves: 'being tragic'}
+// 	]
+// }, (error, foundVampires) => {
+// 	if(error) {
+// 		console.log(error);
+// 	} else {
+// 		console.log(foundVampires);
+// 	}
+// })
+
+//3.
+// Vampire.find({
+// 	$or: [
+// 	{victims: {$gt: 1000}}, 
+// 	{loves: ['marshmallows']}
+// 	]
+// }, (error, foundVampires) => {
+// 	if(error) console.log(err)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
+
+//4.
+Vampire.find({
+	$or: [
+	{hair_color: 'red'}, 
+	{eye_color: 'green'}
+	]
+}, (error, foundVampires) => {
+	if(error) console.log(err)
+	else {
+		console.log(foundVampires)
+}
+})
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
 
