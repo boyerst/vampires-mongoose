@@ -419,9 +419,7 @@ const vampireData = [
 // 	}
 // })
 //4.
-// Vampire.find(
-// 	{loves: {$nin: ['top hats', 'virgin blood']}},
-// (error, foundVampires) => {
+// Vampire.find({loves: {$nin: ['top hats', 'virgin blood']}}, (error, foundVampires) => {
 // 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
@@ -432,34 +430,44 @@ const vampireData = [
 //### Negative Selection
 
 //1.
-// Vampire.find( { 
+// Vampire.find({ 
 // 	loves: 'ribbons',
-// 	eye_color: { $ne: 'brown' } 
+// 	eye_color: { 
+// 		$ne: 'brown' 
+// 	}
 // }, (error, foundVampires) => {
-// if(error) console.log(error)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // 	}
 // })
 //2.
-// Vampire.find( {location: {$ne: 'Rome, Italy'}}, (error, foundVampires) => {
-// if(error) console.log(error)
+// Vampire.find({
+// 	location: {
+// 		$ne: 'Rome, Italy'
+// 	}
+// }, (error, foundVampires) => {
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // 	}
 // })
 //3.
-// Vampire.find( 
-// 	{loves: 
-// 		{$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']} 
+// Vampire.find({
+// 	loves: {
+// 		$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']} 
 // 	}, (error, foundVampires) => {
-// if(error) console.log(error)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // 	}
 // })
 //4.
-// Vampire.find({victims: { $lte: 200 } }, (error, foundVampires) => {
+// Vampire.find({
+// 	victims: {
+// 		$lte: 200
+// 	}
+// }, (error, foundVampires) => {
 // 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
@@ -469,7 +477,23 @@ const vampireData = [
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
+Vampire.replaceOne({
+	'name': 'Claudia'
+},{
+	'name': 'Eve'
+}, (error, replacedVampire) => {
+	if(error) console.log(error)
+	else {
+		console.log(replacedVampire)
+	}
+})
 
+// Vampire.find({name: 'Eve' }, (error, replacedVampire) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(replacedVampire)
+// 	}
+// })
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
