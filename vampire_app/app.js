@@ -236,7 +236,7 @@ const vampireData = [
 // ### Select by comparison
 //1.
 // Vampire.find({gender: "f"}, (error, foundVampires) => {
-// 		if(error) console.log(err)
+// 		if(error) console.log(error)
 // 		else {
 // 			console.log(foundVampires)
 // }
@@ -244,7 +244,7 @@ const vampireData = [
 
 //2.
 // Vampire.find({victims: {$gt: 500}}, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -252,7 +252,7 @@ const vampireData = [
 
 //3.
 // Vampire.find({victims: {$lte: 150}}, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -260,7 +260,7 @@ const vampireData = [
 
 //4.
 // Vampire.find({victims: {$ne: 210234}}, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -273,7 +273,7 @@ const vampireData = [
 // 		$lt: 500
 // 	}
 // }, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -284,7 +284,7 @@ const vampireData = [
 
 //1.
 // Vampire.find({title: {$exists: true}}, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -292,7 +292,7 @@ const vampireData = [
 
 //2.
 // Vampire.find({victims: {$exists: false}}, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -308,7 +308,7 @@ const vampireData = [
 // 	}}, 
 // 	(error, foundVampires) => {
 // 	if(error) 
-// 		console.log(err)
+// 		console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -324,7 +324,7 @@ const vampireData = [
 // 	}}, 
 // 	(error, foundVampires) => {
 // 	if(error) 
-// 		console.log(err)
+// 		console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
@@ -366,26 +366,67 @@ const vampireData = [
 // 	{loves: ['marshmallows']}
 // 	]
 // }, (error, foundVampires) => {
-// 	if(error) console.log(err)
+// 	if(error) console.log(error)
 // 	else {
 // 		console.log(foundVampires)
 // }
 // })
 
 //4.
-Vampire.find({
-	$or: [
-	{hair_color: 'red'}, 
-	{eye_color: 'green'}
-	]
-}, (error, foundVampires) => {
-	if(error) console.log(err)
-	else {
-		console.log(foundVampires)
-}
-})
+// Vampire.find({
+// 	$or: [
+// 	{hair_color: 'red'}, 
+// 	{eye_color: 'green'}
+// 	]
+// }, (error, foundVampires) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// }
+// })
 /////////////////////////////////////////////////
 //### Select objects that match one of several values
+
+//1.
+// Vampire.find({
+// 	$or:[
+// 		{loves: 'frilly shirtsleeves'},
+// 		{loves: 'frilly collars'}
+// 	]
+// }, (error, foundVampires) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+//	}
+// })
+//2. 
+// Vampire.find( {loves: 'brooding' }, (error, foundVampires) => {
+// 	error ? console.log(error) : console.log(foundVampires)
+// })
+
+//3.
+// Vampire.find({
+// 	$or: [
+// 		{loves: 'appearing innocent'},
+// 		{loves: 'trickery'},
+// 		{loves: 'lurking in rotting mansions'},
+// 		{loves: 'R&B music'}
+// 	]
+// }, (error, foundVampires) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
+//4.
+// Vampire.find(
+// 	{loves: {$nin: ['top hats', 'virgin blood']}},
+// (error, foundVampires) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(foundVampires)
+// 	}
+// })
 
 /////////////////////////////////////////////////
 //### Negative Selection
