@@ -477,26 +477,64 @@ const vampireData = [
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## REPLACE
-Vampire.replaceOne({
-	'name': 'Claudia'
-},{
-	'name': 'Eve'
-}, (error, replacedVampire) => {
-	if(error) console.log(error)
-	else {
-		console.log(replacedVampire)
-	}
-})
+//1.
+// Vampire.replaceOne({
+// 	'name': 'Claudia'
+// },{
+// 	'name': 'Eve'
+// }, (error, replacedVampire) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(replacedVampire)
+// 	}
+// })
 
+//TRACKING CLAUDIA --> EVE:
 // Vampire.find({name: 'Eve' }, (error, replacedVampire) => {
 // 	if(error) console.log(error)
 // 	else {
 // 		console.log(replacedVampire)
 // 	}
 // })
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // ## UPDATE
+//1.
+// Vampire.update({name: 'Eve'},{gender: 'm'},
+// 	(error, updatedVampire) => {
+// 		if(error) console.log(error)
+// 	else {
+// 		console.log(updatedVampire)
+// 	}
+// })
+
+//2.
+// Vampire.findOneAndUpdate({name: 'Eve'},{name: 'Moniker'},
+// 	(error, updatedVampire) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(updatedVampire)
+// 	}
+// })
+
+//3.
+// Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (error, updatedVampire) => {
+// 	if(error) console.log(error)
+// 	else {
+// 		console.log(updatedVampire)
+// 	}
+// })
+
+
+//TRACKING EVE'S/MONIKER/FEM CHANGES:
+Vampire.find({'gender': 'f'}, (error, changes) => {
+	if(error) console.log(error)
+	else {
+		console.log(changes)
+	}
+})
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
