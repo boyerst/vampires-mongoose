@@ -23,7 +23,7 @@ const vampireSchema = new Schema ({
 const Vampire = mongoose.model('Vampire', vampireSchema)
 
 
-console.log("\nthis is the Tweet model we created")
+console.log("\nthis is the Vampire model we created")
 console.dir(Vampire)
 
 module.exports = Vampire

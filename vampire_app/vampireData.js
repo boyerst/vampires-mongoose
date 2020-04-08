@@ -1,4 +1,4 @@
-[
+const vampireData = [
   {
     name: 'Count Chocula',
     hair_color: 'brown',
