@@ -2,6 +2,7 @@
 const mongoose = require('mongoose')
 // 2. Require your model (and possibly your extra data source);
 const Vampire = require('./models/vampire.js')
+const vampireData = require("./vampireData.js");
 
 // 3. Connect your database and collection name
 const connectionString = "mongodb://localhost:27017/vampire"
@@ -54,15 +55,15 @@ mongoose.connection.on('error', (error) => {
 // ### Add the vampire data that we gave you
 
 
-// Vampire.create(vampireData, (error, createdVampires) => {
-//     if(error) {
-//         console.log("There was an error");
-//         console.log(error)
-//     } else {
-//         console.log("Here is the created Vampire data")
-//         console.log(createdVampires)
-//     }
-// })
+Vampire.create(vampireData, (error, createdVampires) => {
+    if(error) {
+        console.log("There was an error");
+        console.log(error)
+    } else {
+        console.log("Here is the created Vampire data")
+        console.log(createdVampires)
+    }
+})
 // ### Add some new vampire data
 // Vampire.create([
 // {
