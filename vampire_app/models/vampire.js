@@ -13,6 +13,7 @@ const vampireSchema = new Schema ({
   	loves: Array,
   	location: String,
   	gender: String,
+    title: String,
   	victims: {
   		type: Number,
   		minimum: 0
@@ -23,7 +24,7 @@ const vampireSchema = new Schema ({
 const Vampire = mongoose.model('Vampire', vampireSchema)
 
 
-console.log("\nthis is the Vampire model we created")
-console.dir(Vampire)
+// console.log("\nthis is the Vampire model we created")
+// console.dir(Vampire)
 
 module.exports = Vampire

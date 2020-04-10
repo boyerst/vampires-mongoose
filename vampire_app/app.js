@@ -55,15 +55,15 @@ mongoose.connection.on('error', (error) => {
 // ### Add the vampire data that we gave you
 
 
-Vampire.create(vampireData, (error, createdVampires) => {
-    if(error) {
-        console.log("There was an error");
-        console.log(error)
-    } else {
-        console.log("Here is the created Vampire data")
-        console.log(createdVampires)
-    }
-})
+// Vampire.create(vampireData, (error, createdVampires) => {
+//     if(error) {
+//         console.log("There was an error");
+//         console.log(error)
+//     } else {
+//         console.log("Here is the created Vampire data")
+//         console.log(createdVampires)
+//     }
+// })
 // ### Add some new vampire data
 // Vampire.create([
 // {
@@ -116,47 +116,50 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // ## QUERYING
 /////////////////////////////////////////////////
 // ### Select by comparison
-//1.
+// 1.
 // Vampire.find({gender: "f"}, (error, foundVampires) => {
-// 		if(error) console.log(error)
-// 		else {
-// 			console.log(foundVampires)
+// 	if(error) {
+// 		 console.log(error)
+// 	} else {
+// 		console.log(foundVampires)
 // }
 // })
 
-//2.
+// 2.
 // Vampire.find({victims: {$gt: 500}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
 
-//3.
+// 3.
 // Vampire.find({victims: {$lte: 150}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
 
-//4.
+// 4.
 // Vampire.find({victims: {$ne: 210234}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
 
-//5.
+// 5.
 // Vampire.find({
-	//victims: {
-// 		$gt: 150,
-// 		$lt: 500
-// 	}
-// }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	victims: {$gt: 150, $lt: 500}
+// },  
+// (error, foundVampires) => {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
@@ -166,34 +169,33 @@ Vampire.create(vampireData, (error, createdVampires) => {
 
 //1.
 // Vampire.find({title: {$exists: true}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
-// }
+// 	}
 // })
 
 //2.
 // Vampire.find({victims: {$exists: false}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
-// }
+// 	}
 // })
 
 //3.
-// Vampire.find({
-// 	title: {
-// 		$exists: true
-// 	}, 
-// 	victims: {
-// 		$eq: 0
-// 	}}, 
-// 	(error, foundVampires) => {
-// 	if(error) 
+
+// Vampire.find({$and: [
+// 	{title: {$exists: true}},
+// 	{victims: {$exists: false}}]
+// 	}, (error, foundVampires) => {
+// 	if (error) {
 // 		console.log(error)
-// 	else {
+// 	} else {
 // 		console.log(foundVampires)
-// }
+// 	}
 // })
 
 //4.
@@ -205,9 +207,9 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // 		$gt: 1000
 // 	}}, 
 // 	(error, foundVampires) => {
-// 	if(error) 
+// 	if (error) {
 // 		console.log(error)
-// 	else {
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
@@ -242,27 +244,25 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // })
 
 //3.
-// Vampire.find({
-// 	$or: [
+// Vampire.find({$or: [
 // 	{victims: {$gt: 1000}}, 
-// 	{loves: ['marshmallows']}
-// 	]
+// 	{loves: 'marshmallows'}]
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
 
 //4.
-// Vampire.find({
-// 	$or: [
+// Vampire.find({$or: [
 // 	{hair_color: 'red'}, 
-// 	{eye_color: 'green'}
-// 	]
+// 	{eye_color: 'green'}]
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // }
 // })
@@ -270,40 +270,51 @@ Vampire.create(vampireData, (error, createdVampires) => {
 //### Select objects that match one of several values
 
 //1.
-// Vampire.find({
-// 	$or:[
+// Vampire.find({$or:[
 // 		{loves: 'frilly shirtsleeves'},
-// 		{loves: 'frilly collars'}
-// 	]
+// 		{loves: 'frilly collars'}]
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
-//	}
-// })
-//2. 
-// Vampire.find( {loves: 'brooding' }, (error, foundVampires) => {
-// 	error ? console.log(error) : console.log(foundVampires)
+// 	}
 // })
 
+// Vampire.where("loves")
+//   .in(["frilly collars", "frilly shirtsleeves"])
+//   .exec((error, foundVampires) => {
+//     if (error) console.log("Error finding vampire");
+//     else {
+//       console.log(foundVampires);
+//     }
+//   });
+//2. 
+// Vampire.find({loves: 'brooding' }, (error, foundVampires) => {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
+// 		console.log(foundVampires)
+// 	}
+// })
 //3.
-// Vampire.find({
-// 	$or: [
+// Vampire.find({$or:[
 // 		{loves: 'appearing innocent'},
 // 		{loves: 'trickery'},
 // 		{loves: 'lurking in rotting mansions'},
-// 		{loves: 'R&B music'}
-// 	]
+// 		{loves: 'R&B music'}]
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // 	}
 // })
 //4.
 // Vampire.find({loves: {$nin: ['top hats', 'virgin blood']}}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // 	}
 // })
@@ -318,8 +329,9 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // 		$ne: 'brown' 
 // 	}
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // 	}
 // })
@@ -339,8 +351,9 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // 	loves: {
 // 		$nin: ['fancy cloaks', 'frilly shirtsleeves', 'appearing innocent', 'being tragic', 'brooding']} 
 // 	}, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // 	}
 // })
@@ -350,8 +363,9 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // 		$lte: 200
 // 	}
 // }, (error, foundVampires) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(foundVampires)
 // 	}
 // })
@@ -360,21 +374,31 @@ Vampire.create(vampireData, (error, createdVampires) => {
 /////////////////////////////////////////////////
 // ## REPLACE
 //1.
-// Vampire.replaceOne({
-// 	'name': 'Claudia'
-// },{
-// 	'name': 'Eve'
-// }, (error, replacedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// Vampire.replaceOne(
+// 	{name : 'Claudia'},
+// 	{
+// 		name: "Eve",
+// 		hair_color: "rainbow",
+// 		eye_color: "green",
+// 		dob: new Date(2002, 2, 8, 5, 3),
+// 		loves: ["yo-yo","marshmallows", "tie-dye"],
+// 		location: "Chicago, Illinois, US",
+// 		gender: 'f',
+// 		victims: 501
+// 	},
+// 	(error, replacedVampire) => {
+// 	if(error) {
+//  		console.log(error)
+// 	} else {
 // 		console.log(replacedVampire)
 // 	}
 // })
 
 //TRACKING CLAUDIA --> EVE:
-// Vampire.find({name: 'Claudia' }, (error, replacedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// Vampire.find({name: 'Eve' }, (error, replacedVampire) => {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(replacedVampire)
 // 	}
 // })
@@ -385,41 +409,45 @@ Vampire.create(vampireData, (error, createdVampires) => {
 //1.
 // Vampire.update({name: 'Eve'},{gender: 'm'},
 // 	(error, updatedVampire) => {
-// 		if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(updatedVampire)
 // 	}
 // })
 
 //TRACKING EVE'S GENDER:
 // Vampire.find({name: 'Eve' }, (error, updatedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(updatedVampire)
 // 	}
 // })
 
 //2.
-// Vampire.findOneAndUpdate({name: 'Eve'},{name: 'Moniker'},
-// 	(error, updatedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// Vampire.updateOne({name: "Eve"}, {$rename: {name: "moniker"}}, (error, updatedVampire) => {
+// 	if (error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(updatedVampire)
 // 	}
 // })
 
-//TRACKING MONIKER:
-// Vampire.find({name: 'Moniker' }, (error, updatedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// TRACKING EVE:
+// Vampire.find({moniker: 'Eve' }, (error, updatedVampire) => {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(updatedVampire)
 // 	}
 // })
 
 //3.
 // Vampire.updateMany({gender: 'f'}, {gender: 'fems'}, (error, updatedVampire) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(updatedVampire)
 // 	}
 // })
@@ -427,8 +455,9 @@ Vampire.create(vampireData, (error, createdVampires) => {
 
 //TRACKING EVE'S/MONIKER/FEM CHANGES:
 // Vampire.find({'gender': 'fems'}, (error, changes) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(changes)
 // 	}
 // })
@@ -442,8 +471,7 @@ Vampire.create(vampireData, (error, createdVampires) => {
 // 	(error, foundVampires) =>{
 // 		if(error){
 // 			console.log(error)
-// 		}
-// 		else{
+// 		} else{
 // 			console.log(foundVampires)
 // 		}
 // 	}
@@ -451,24 +479,27 @@ Vampire.create(vampireData, (error, createdVampires) => {
 
 //TRACKING BROWN HAIR PEEPS REMOVAL
 // Vampire.find({'hair_color': 'brown'}, (error, changes) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(changes)
 // 	}
 // })
 
 //2.
 // Vampire.deleteMany({eye_color: 'blue'}, (error, deletions) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(deletions)
 // 	}
 // })
 
 //TRACKING BLUE EYED PEEPS WHO GOT REMOVED
 // Vampire.find({'eye_color': 'blue'}, (error, changes) => {
-// 	if(error) console.log(error)
-// 	else {
+// 	if(error) {
+// 		console.log(error)
+// 	} else {
 // 		console.log(changes)
 // 	}
 // })
